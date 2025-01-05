@@ -2,6 +2,20 @@ defaults:
   - base
 
 job_name: "7u7w_protein"
+
+output_path: "outputs/Test"
+checkpoint_path: RFAA_paper_weights.pt
+database_params:
+  sequencedb: ""
+  hhdb: "pdb100_2021Mar03/pdb100_2021Mar03"
+  command: make_msa.sh
+  num_cpus: 8
+  mem: 64
+  
 protein_inputs: 
   A:
     fasta_file: examples/protein/7u7w_A.fasta
+na_inputs: null
+sm_inputs: null
+covale_inputs:  null
+residue_replacement: null
