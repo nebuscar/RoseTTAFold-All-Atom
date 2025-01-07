@@ -1,0 +1,19 @@
+defaults:
+  - base
+
+job_name: "TCR_protein_6U07"
+
+output_path: "outputs/TCR/TCR_protein_6U07"
+checkpoint_path: "RFAA_paper_weights.pt"
+database_params:
+  sequencedb: ""
+  hhdb: "pdb100_2021Mar03/pdb100_2021Mar03"
+  command: make_msa.sh
+  num_cpus: 6
+  mem: 64
+
+protein_inputs:
+  A:
+    fasta_file: "inputs/TCR/6U07/rcsb_pdb_6U07_A.fasta"
+  B:
+    fasta_file: "inputs/TCR/6U07/rcsb_pdb_6U07_B.fasta"

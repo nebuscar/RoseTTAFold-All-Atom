@@ -1,0 +1,25 @@
+defaults:
+  - base
+
+job_name: "TCR_protein_8F5A"
+
+output_path: "outputs/TCR/TCR_protein_8F5A"
+checkpoint_path: "RFAA_paper_weights.pt"
+database_params:
+  sequencedb: ""
+  hhdb: "pdb100_2021Mar03/pdb100_2021Mar03"
+  command: make_msa.sh
+  num_cpus: 6
+  mem: 64
+
+protein_inputs:
+  A:
+    fasta_file: "inputs/TCR/8F5A/rcsb_pdb_8F5A_A.fasta"
+  C:
+    fasta_file: "inputs/TCR/8F5A/rcsb_pdb_8F5A_C.fasta"
+  D:
+    fasta_file: "inputs/TCR/8F5A/rcsb_pdb_8F5A_D.fasta"
+  E:
+    fasta_file: "inputs/TCR/8F5A/rcsb_pdb_8F5A_E.fasta"
+  B:
+    fasta_file: "inputs/TCR/8F5A/rcsb_pdb_8F5A_B.fasta"

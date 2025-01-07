@@ -681,13 +681,20 @@ def parse_templates_raw(ffdb, hhr_fn, atab_fn, max_templ=20):
         qmap.append(np.stack([qi[sel1]-1,[counter]*ncol],axis=-1))
         counter += 1
 
-    xyz = np.vstack(xyz).astype(np.float32)
-    mask = np.vstack(mask).astype(bool)
-    qmap = np.vstack(qmap).astype(np.int64)
-    f0d = np.vstack(f0d).astype(np.float32)
-    f1d = np.vstack(f1d).astype(np.float32)
-    seq = np.hstack(seq).astype(np.int64)
-    ids = ids
+    if len(ids) > 0:
+        xyz = np.vstack(xyz).astype(np.float32)
+        mask = np.vstack(mask).astype(bool)
+        qmap = np.vstack(qmap).astype(np.int64)
+        f0d = np.vstack(f0d).astype(np.float32)
+        f1d = np.vstack(f1d).astype(np.float32)
+        seq = np.hstack(seq).astype(np.int64)
+    else:
+        xyz = np.empty((0,3)).astype(np.float32)
+        mask = np.empty((0)).astype(bool)
+        qmap = np.empty((0)).astype(np.int64)
+        f0d = np.empty((0)).astype(np.float32)
+        f1d = np.empty((0)).astype(np.float32)
+        seq = np.empty((0)).astype(np.int64)
 
     return torch.from_numpy(xyz), torch.from_numpy(mask), torch.from_numpy(qmap), \
            torch.from_numpy(f0d), torch.from_numpy(f1d), torch.from_numpy(seq), ids

@@ -1,0 +1,21 @@
+defaults:
+  - base
+
+job_name: "MHC_protein_6Y27"
+
+output_path: "outputs/MHC/MHC_protein_6Y27"
+checkpoint_path: "RFAA_paper_weights.pt"
+database_params:
+  sequencedb: ""
+  hhdb: "pdb100_2021Mar03/pdb100_2021Mar03"
+  command: make_msa.sh
+  num_cpus: 6
+  mem: 64
+
+protein_inputs:
+  C:
+    fasta_file: "inputs/MHC/6Y27/rcsb_pdb_6Y27_C.fasta"
+  A:
+    fasta_file: "inputs/MHC/6Y27/rcsb_pdb_6Y27_A.fasta"
+  B:
+    fasta_file: "inputs/MHC/6Y27/rcsb_pdb_6Y27_B.fasta"

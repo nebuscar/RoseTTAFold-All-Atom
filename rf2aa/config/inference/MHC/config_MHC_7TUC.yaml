@@ -1,0 +1,21 @@
+defaults:
+  - base
+
+job_name: "MHC_protein_7TUC"
+
+output_path: "outputs/MHC/MHC_protein_7TUC"
+checkpoint_path: "RFAA_paper_weights.pt"
+database_params:
+  sequencedb: ""
+  hhdb: "pdb100_2021Mar03/pdb100_2021Mar03"
+  command: make_msa.sh
+  num_cpus: 6
+  mem: 64
+
+protein_inputs:
+  A:
+    fasta_file: "inputs/MHC/7TUC/rcsb_pdb_7TUC_A.fasta"
+  B:
+    fasta_file: "inputs/MHC/7TUC/rcsb_pdb_7TUC_B.fasta"
+  C:
+    fasta_file: "inputs/MHC/7TUC/rcsb_pdb_7TUC_C.fasta"

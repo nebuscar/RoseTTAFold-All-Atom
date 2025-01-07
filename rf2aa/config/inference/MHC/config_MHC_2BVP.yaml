@@ -1,0 +1,21 @@
+defaults:
+  - base
+
+job_name: "MHC_protein_2BVP"
+
+output_path: "outputs/MHC/MHC_protein_2BVP"
+checkpoint_path: "RFAA_paper_weights.pt"
+database_params:
+  sequencedb: ""
+  hhdb: "pdb100_2021Mar03/pdb100_2021Mar03"
+  command: make_msa.sh
+  num_cpus: 6
+  mem: 64
+
+protein_inputs:
+  B:
+    fasta_file: "inputs/MHC/2BVP/rcsb_pdb_2BVP_B.fasta"
+  C:
+    fasta_file: "inputs/MHC/2BVP/rcsb_pdb_2BVP_C.fasta"
+  A:
+    fasta_file: "inputs/MHC/2BVP/rcsb_pdb_2BVP_A.fasta"
