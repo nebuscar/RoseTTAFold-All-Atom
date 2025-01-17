@@ -14,7 +14,8 @@ from rf2aa.chemical import ChemicalData as ChemData
 class MSA_emb(nn.Module):
     # Get initial seed MSA embedding
     def __init__(self, d_msa=256, d_pair=128, d_state=32, d_init=0,
-                 minpos=-32, maxpos=32, maxpos_atom=8, p_drop=0.1, use_same_chain=False, enable_same_chain=False):
+                 minpos=-32, maxpos=32, maxpos_atom=8, p_drop=0.1, use_same_chain=False, 
+                 enable_same_chain=False):
         if (d_init==0):
             d_init = 2*ChemData().NAATOKENS+2+2
             

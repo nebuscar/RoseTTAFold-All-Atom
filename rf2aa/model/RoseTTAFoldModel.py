@@ -210,6 +210,7 @@ class RoseTTAFoldModule(nn.Module):
         A = atom_frames.shape[1]
         dtype = msa_latent.dtype
         
+        # 校验输入数据的输入格式
         if self.assert_single_sequence_input:
             assert_shape(msa_latent, (1, 1, L, 164))
             assert_shape(msa_full, (1, 1, L, 83))
@@ -332,7 +333,7 @@ class RoseTTAFoldModule(nn.Module):
                     xyz_t[0, 0, i, 0],
                 )
 
-        # Get embeddings
+        # Get embeddings # 获取嵌入向量
         #if self.enable_same_chain == False:
         #    same_chain = None
         msa_latent, pair, state = self.latent_emb(
