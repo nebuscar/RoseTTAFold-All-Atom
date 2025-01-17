@@ -147,6 +147,14 @@ class ModelRunner:
                  )
         torch.save(err_dict, os.path.join(f"{self.config.output_path}", 
                                           f"{self.config.job_name}_aux.pt"))
+        
+        # 打印 input_feats
+        print(input_feats)
+
+        # 保存 input_feats 到 outputs 文件夹
+        torch.save(input_feats, os.path.join(f"{self.config.output_path}", 
+                                             f"{self.config.job_name}_input_feats.pt"))
+
 
     def infer(self):
         self.load_model()

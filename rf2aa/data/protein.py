@@ -19,6 +19,19 @@ def get_templates(
     random_noise: float = 5.0,
     deterministic: bool = False,
 ):
+    
+    # 打印所有输入值
+    print(f"qlen: {qlen}")
+    # print(f"ffdb: {ffdb}")
+    # print(f"hhr_fn: {hhr_fn}")
+    # print(f"atab_fn: {atab_fn}")
+    print(f"seqID_cut: {seqID_cut}")
+    print(f"n_templ: {n_templ}")
+    # print(f"pick_top: {pick_top}")
+    # print(f"offset: {offset}")
+    # print(f"random_noise: {random_noise}")
+    # print(f"deterministic: {deterministic}")
+
     (
         xyz_parsed,
         mask_parsed,
@@ -37,6 +50,11 @@ def get_templates(
         "seq": seq_parsed.unsqueeze(0),
         "ids": ids_parsed,
     }
+
+    # print("tplt:", tplt)
+    print("seq_parsed:", seq_parsed)
+    print("seq_parsed shape:", seq_parsed.shape)
+
     params = {
         "SEQID": seqID_cut,
     }
@@ -59,6 +77,8 @@ def load_protein(msa_file, hhr_fn, atab_fn, model_runner):
     ins[0] = msa[0]
 
     L = msa.shape[1]
+    print("L:", L)
+
     if hhr_fn is None or atab_fn is None:
         print("No templates provided")
         xyz_t, t1d, mask_t, _ = blank_template(1, L)
@@ -74,6 +94,9 @@ def load_protein(msa_file, hhr_fn, atab_fn, model_runner):
         )
 
     bond_feats = get_protein_bond_feats(L)
+
+    print("bond_feats:", bond_feats)
+
     chirals = torch.zeros(0, 5)
     atom_frames = torch.zeros(0, 3, 2)
     return RawInputData(

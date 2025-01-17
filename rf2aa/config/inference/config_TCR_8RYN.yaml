@@ -15,8 +15,8 @@ database_params:
 protein_inputs:
   C:
     fasta_file: "inputs/TCR/8RYN/rcsb_pdb_8RYN_C.fasta"
-  #B:
-    #fasta_file: "inputs/TCR/8RYN/rcsb_pdb_8RYN_B.fasta"
+  B:
+    fasta_file: "inputs/TCR/8RYN/rcsb_pdb_8RYN_B.fasta"
   D:
     fasta_file: "inputs/TCR/8RYN/rcsb_pdb_8RYN_D.fasta"
   A:

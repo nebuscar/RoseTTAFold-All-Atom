@@ -704,6 +704,10 @@ def read_templates(qlen, ffdb, hhr_fn, atab_fn, n_templ=10):
     ntmplatoms = xyz_t.shape[1]
 
     npick = min(n_templ, len(ids))
+
+    # 打印 npick
+    print(f"npick: {npick}")
+
     if npick < 1: # no templates
         xyz = torch.full((1,qlen,ChemData().NTOTAL,3),np.nan).float()
         mask = torch.full((1,qlen,ChemData().NTOTAL),False)
